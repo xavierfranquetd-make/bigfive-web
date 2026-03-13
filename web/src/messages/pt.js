@@ -46,7 +46,7 @@ const portuguese = {
       }
     },
     description: {
-      top: 'Aprenda a se conhecer melhor com um teste de personalidade <violet>gratuito</violet> e de código aberto.',
+      top: 'Aprenda a se conhecer melhor com um teste de personalidade <violet>BigFive</violet> e de código aberto.',
       subtop: 'O',
       subtop2:
         ' é o modelo psicológico mais validado cientificamente e confiável para medir a personalidade.',
