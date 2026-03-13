@@ -1,6 +1,5 @@
 import '@/styles/globals.css';
 import { Metadata, Viewport } from 'next';
-import { fontSans } from '@/config/fonts';
 import { Providers } from '../providers';
 import { Navbar } from '@/components/navbar';
 import clsx from 'clsx';
@@ -10,9 +9,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import { basePath, getNavItems, locales, siteConfig } from '@/config/site';
 import { unstable_setRequestLocale } from 'next-intl/server';
 import { getTranslations } from 'next-intl/server';
-import { Analytics } from '@vercel/analytics/react';
 import useTextDirection from '@/hooks/use-text-direction';
-import Script from 'next/script';
 import CookieBanner from '@/components/cookie-consent';
 
 export function generateStaticParams() {
@@ -26,7 +23,6 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'frontpage' });
   const s = await getTranslations({ locale, namespace: 'seo' });
-  const alternatesLang = locales.reduce((a, v) => ({ ...a, [v]: `/${v}` }), {});
   return {
     title: {
       default: t('seo.title'),
@@ -34,17 +30,13 @@ export async function generateMetadata({
     },
     description: t('seo.description'),
     keywords: s('keywords'),
-    authors: [{ name: 'Jonas Enge', url: 'https://bigfive-test.com' }],
+    authors: [{ name: 'EstudieMás', url: 'https://estudiemas.com' }],
     icons: {
       icon: '/favicon.ico',
       shortcut: '/favicon-16x16.png',
       apple: '/apple-touch-icon.png'
     },
-    metadataBase: new URL('https://bigfive-test.com'),
-    // alternates: {
-    //   canonical: '/',
-    //   languages: alternatesLang
-    // },
+    metadataBase: new URL('https://personalidad.estudiemas.com'),
     openGraph: {
       type: 'website',
       url: basePath,
@@ -52,7 +44,7 @@ export async function generateMetadata({
       description: t('seo.description'),
       images: {
         url: `${basePath}/og-image.png`,
-        alt: 'People comparing personality tests'
+        alt: 'Test de personalidad EstudieMás'
       }
     },
     twitter: {
@@ -63,11 +55,12 @@ export async function generateMetadata({
       creator: siteConfig.creator,
       images: {
         url: `${basePath}/og-image.png`,
-        alt: 'People comparing personality tests'
+        alt: 'Test de personalidad EstudieMás'
       }
     }
   };
 }
+
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -98,8 +91,7 @@ export default async function RootLayout({
       <head />
       <body
         className={clsx(
-          'min-h-screen bg-background font-sans antialiased',
-          fontSans.variable
+          'min-h-screen bg-background font-sans antialiased'
         )}
       >
         <Providers
@@ -116,11 +108,6 @@ export default async function RootLayout({
             <Footer footerLinks={footerLinks} />
           </div>
         </Providers>
-        <Script
-          src='https://bigfive-test.com/sw.js'
-          strategy='beforeInteractive'
-        />
-        <Analytics />
       </body>
       <GoogleAnalytics gaId={gaId} />
     </html>
