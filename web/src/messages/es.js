@@ -9,12 +9,12 @@ const spanish = {
   },
   frontpage: {
     seo: {
-      title: 'Prueba gratuita y open-source de rasgos de personalidad BigFive',
+      title: 'Prueba EstudieMas, open-source de rasgos de personalidad BigFive',
       description:
-        'Realiza la prueba de personalidad Big Five, gratuita y open-source. Aprende a conocer tus rasgos de personalidad y compárate con tu pareja, compañeros, amigos o familiares.'
+        'Realiza la prueba de personalidad Big Five open-source. Aprende a conocer tus rasgos de personalidad y compárate con tu pareja, compañeros, amigos o familiares.'
     },
     title: 'Prueba de personalidad Big Five',
-    call_to_action: 'Haz la prueba gratis ahora',
+    call_to_action: 'Haz la prueba ahora',
     no_registration: '*No es necesario registrarse',
     tests_taken: 'Más de <green>{n}</green> personas han realizado la prueba',
     compare: {
@@ -40,11 +40,11 @@ const spanish = {
       },
       translated: {
         title: 'Traducido',
-        text: 'Traducido a más de 20 idiomas. Puedes ayudar <a href="https://b5.translations.alheimsins.net/" rel="noreferrer" target="blank">aquí</a>!'
+        text: 'Traducido 2 idiomas. Puedes ayudar <a href="https://b5.translations.alheimsins.net/" rel="noreferrer" target="blank">aquí</a>!'
       }
     },
     description: {
-      top: 'Aprende a conocerte mejor con un test de personalidad <violet>gratuito</violet> y open-source',
+      top: 'Aprende a conocerte mejor con un test de personalidad <violet>BigFive</violet>, open-source',
       subtop: 'el',
       subtop2:
         ' es el modelo psicológico más confiable y científicamente validado para medir la personalidad.',
