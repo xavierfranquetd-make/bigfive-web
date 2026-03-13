@@ -2,9 +2,9 @@ import { getTranslations } from 'next-intl/server';
 
 export type SiteConfig = typeof siteConfig;
 
-export const basePath = 'https://bigfive-test.com';
+export const basePath = 'https://personalidad.estudiemas.com';
 
-export const supportEmail = 'bigfive-test@rubynor.com';
+export const supportEmail = 'info@estudiemas.com';
 
 export type Language = {
   code: string;
@@ -54,10 +54,10 @@ export const languages: Language[] = [
 export const locales = languages.map((lang) => lang.code) as string[];
 
 export const siteConfig = {
-  name: 'Big Five Personality Test',
-  creator: '@maccyber',
+  name: 'Test de Personalidad — EstudieMás',
+  creator: 'EstudieMás',
   description:
-    'Learn to know yourself better with a free, open-source personality test.',
+    'Conócete mejor con un test de personalidad gratuito y científico.',
   navItems: [
     {
       label: 'home',
@@ -70,14 +70,6 @@ export const siteConfig = {
     {
       label: 'compare',
       href: '/compare'
-    },
-    {
-      label: 'articles',
-      href: '/articles'
-    },
-    {
-      label: 'about',
-      href: '/about'
     }
   ],
   navMenuItems: [
@@ -94,20 +86,8 @@ export const siteConfig = {
       href: '/compare'
     },
     {
-      label: 'articles',
-      href: '/articles'
-    },
-    {
       label: 'privacy',
       href: '/privacy'
-    },
-    {
-      label: 'about',
-      href: '/about'
-    },
-    {
-      label: 'faq',
-      href: '/faq'
     }
   ],
   footerLinks: [
@@ -116,27 +96,15 @@ export const siteConfig = {
       href: '/'
     },
     {
-      label: 'articles',
-      href: '/articles'
-    },
-    {
       label: 'privacy',
       href: '/privacy'
-    },
-    {
-      label: 'about',
-      href: '/about'
-    },
-    {
-      label: 'faq',
-      href: '/faq'
     }
   ],
   links: {
-    github: 'https://github.com/rubynor/bigfive-web',
-    twitter: 'https://twitter.com/rubynor',
-    linkedIn: 'https://www.linkedin.com/company/rubynor-as/',
-    facebook: 'https://www.facebook.com/rubynorno'
+    github: 'https://estudiemas.com',
+    twitter: 'https://estudiemas.com',
+    linkedIn: 'https://estudiemas.com',
+    facebook: 'https://estudiemas.com'
   }
 };
 
