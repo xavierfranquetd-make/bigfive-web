@@ -94,9 +94,6 @@ export const Navbar = ({ navItems, navMenuItems }: NavbarProps) => {
         <NavbarItem>
           <LocaleSwitcher />
         </NavbarItem>
-        <NavbarItem>
-          <Link isExternal href={siteConfig.links.github} aria-label='Github'>
-            <GithubIcon className='text-default-500' />
           </Link>
         </NavbarItem>
         <NavbarItem>
