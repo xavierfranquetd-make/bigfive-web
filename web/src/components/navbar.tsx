@@ -12,14 +12,11 @@ import {
 import LocaleSwitcher from '@/components/locale-switcher';
 import LocaleSwitcherFull from '@/components/locale-switcher-full';
 import { Link } from '@nextui-org/link';
-
 import { link as linkStyles } from '@nextui-org/theme';
-
 import { siteConfig } from '@/config/site';
 import clsx from 'clsx';
-
 import { ThemeSwitch } from '@/components/theme-switch';
-import { TwitterIcon, GithubIcon, Logo } from '@/components/icons';
+import { Logo } from '@/components/icons';
 import { Link as NextLink } from '../navigation';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
@@ -83,6 +80,7 @@ export const Navbar = ({ navItems, navMenuItems }: NavbarProps) => {
         className='hidden md:flex basis-1/5 sm:basis-full'
         justify='end'
       >
+        <NavbarItem className='hidden sm:flex gap-2'>
           <ThemeSwitch />
         </NavbarItem>
         <NavbarItem>
@@ -93,8 +91,6 @@ export const Navbar = ({ navItems, navMenuItems }: NavbarProps) => {
       <NavbarContent className='md:hidden basis-1 pl-4' justify='end'>
         <NavbarItem>
           <LocaleSwitcher />
-        </NavbarItem>
-          </Link>
         </NavbarItem>
         <NavbarItem>
           <ThemeSwitch />
