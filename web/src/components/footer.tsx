@@ -1,9 +1,8 @@
 import { Link as NextUILink } from '@nextui-org/link';
 import { Link } from '../navigation';
-
 import {
-  TwitterIcon,
-  GithubIcon,
+  InstagramIcon,
+  TikTokIcon,
   LinkedInIcon,
   FacebookIcon,
   Logo
@@ -30,21 +29,21 @@ export default function Footer({ footerLinks }: FooterProps) {
         <div className='w-1/2 flex justify-end'>
           <NextUILink
             isExternal
-            href={siteConfig.links.twitter}
-            aria-label='Twitter'
+            href={siteConfig.links.instagram}
+            aria-label='Instagram'
           >
-            <TwitterIcon size={48} className='text-default-500' />
+            <InstagramIcon size={48} className='text-default-500' />
           </NextUILink>
           <NextUILink
             isExternal
-            href={siteConfig.links.github}
-            aria-label='Github'
+            href={siteConfig.links.tiktok}
+            aria-label='TikTok'
           >
-            <GithubIcon size={48} className='text-default-500' />
+            <TikTokIcon size={48} className='text-default-500' />
           </NextUILink>
           <NextUILink
             isExternal
-            href={siteConfig.links.linkedIn}
+            href={siteConfig.links.linkedin}
             aria-label='LinkedIn'
           >
             <LinkedInIcon size={48} className='text-default-500' />
@@ -58,7 +57,6 @@ export default function Footer({ footerLinks }: FooterProps) {
           </NextUILink>
         </div>
       </div>
-
       <div className='w-full flex justify-center mt-12'>
         <ul className='flex mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0'>
           {footerLinks.map((item, index) => (
@@ -70,9 +68,8 @@ export default function Footer({ footerLinks }: FooterProps) {
           ))}
         </ul>
       </div>
-
       <div className='flex text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:py-2 mt-14 justify-center'>
-        © {year} — B5 Holding AS - all rights reserved.
+        © {year} — EstudieMás - todos los derechos reservados.
       </div>
     </footer>
   );
