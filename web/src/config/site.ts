@@ -68,12 +68,12 @@ export const siteConfig = {
       href: '/privacy'
     }
   ],
-  links: {
-    github: 'https://estudiemas.com',
-    twitter: 'https://estudiemas.com',
-    linkedIn: 'https://estudiemas.com',
-    facebook: 'https://estudiemas.com'
-  }
+    links: {
+  linkedin: 'https://www.linkedin.com/company/fundaestudiemas/',
+  facebook: 'https://www.facebook.com/fundaestudiemas/',
+  instagram: 'https://www.instagram.com/estudiemas/',
+  tiktok: 'https://www.tiktok.com/@estudiemas'
+}
 };
 
 export const getNavItems = async ({
