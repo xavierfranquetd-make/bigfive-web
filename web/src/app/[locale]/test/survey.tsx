@@ -1,12 +1,10 @@
 'use client';
-
 import { useEffect, useMemo, useState } from 'react';
 import { Button } from '@nextui-org/button';
 import { RadioGroup, Radio } from '@nextui-org/radio';
 import { Progress } from '@nextui-org/progress';
 import confetti from 'canvas-confetti';
 import { useRouter } from '@/navigation';
-
 import { CloseIcon, InfoIcon } from '@/components/icons';
 import { type Question } from '@bigfive-org/questions';
 import { sleep, formatTimer, isDev } from '@/lib/helpers';
@@ -14,13 +12,13 @@ import useWindowDimensions from '@/hooks/useWindowDimensions';
 import useTimer from '@/hooks/useTimer';
 import { type Answer } from '@/types';
 import { Card, CardHeader } from '@nextui-org/card';
+import { saveTest } from '@/actions';
 
 interface SurveyProps {
   questions: Question[];
   nextText: string;
   prevText: string;
   resultsText: string;
-  saveTest: Function;
   language: string;
 }
 
@@ -29,7 +27,6 @@ export const Survey = ({
   nextText,
   prevText,
   resultsText,
-  saveTest,
   language
 }: SurveyProps) => {
   const router = useRouter();
@@ -69,36 +66,29 @@ export const Survey = ({
   );
 
   const isTestDone = questions.length === answers.length;
-
   const progress = Math.round((answers.length / questions.length) * 100);
-
   const nextButtonDisabled =
     inProgress ||
     currentQuestionIndex + questionsPerPage > answers.length ||
     (isTestDone &&
       currentQuestionIndex === questions.length - questionsPerPage) ||
     loading;
-
   const backButtonDisabled = currentQuestionIndex === 0 || loading;
 
   async function handleAnswer(id: string, value: string) {
     const question = questions.find((question) => question.id === id);
     if (!question) return;
-
     const newAnswer: Answer = {
       id,
       score: Number(value),
       domain: question.domain,
       facet: question.facet
     };
-
     setAnswers((prevAnswers) => [
       ...prevAnswers.filter((a) => a.id !== id),
       newAnswer
     ]);
-
     const latestAnswerId = answers.slice(-1)[0]?.id;
-
     if (
       questionsPerPage === 1 &&
       questions.length !== answers.length + 1 &&
@@ -134,7 +124,6 @@ export const Survey = ({
         facet: question.facet
       }))
       .slice(0, questions.length - 1);
-
     setAnswers([...randomAnswers]);
     setCurrentQuestionIndex(questions.length - 1);
   }
@@ -152,7 +141,6 @@ export const Survey = ({
     });
     localStorage.removeItem('inProgress');
     localStorage.removeItem('b5data');
-    console.log(result);
     localStorage.setItem('resultId', result.id);
     router.push(`/result/${result.id}`);
   }
@@ -180,7 +168,6 @@ export const Survey = ({
   }
 
   function clearDataInLocalStorage() {
-    console.log('Clearing data from local storage');
     localStorage.removeItem('inProgress');
     localStorage.removeItem('b5data');
     location.reload();
@@ -207,7 +194,7 @@ export const Survey = ({
             </Button>
             <p>
               Your answers has been restored. Click here to&nbsp;
-              <a
+              
                 className='underline cursor-pointer'
                 onClick={clearDataInLocalStorage}
                 aria-label='Clear data'
@@ -259,7 +246,6 @@ export const Survey = ({
         >
           {prevText.toUpperCase()}
         </Button>
-
         <Button
           color='primary'
           isDisabled={nextButtonDisabled}
@@ -267,7 +253,6 @@ export const Survey = ({
         >
           {nextText.toUpperCase()}
         </Button>
-
         {isTestDone && (
           <Button
             color='secondary'
@@ -278,7 +263,6 @@ export const Survey = ({
             {resultsText.toUpperCase()}
           </Button>
         )}
-
         {isDev && !isTestDone && (
           <Button color='primary' onClick={skipToEnd}>
             Skip to end (dev)
